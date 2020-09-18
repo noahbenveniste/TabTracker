@@ -10,9 +10,9 @@ app.use(morgan('combined'));		// Logger
 app.use(bodyParser.json());			// Easily parse request data
 app.use(cors());								// Enable CORS (cross-origin resource sharing)
 
-app.get('/status', (req, res) => {
+app.post('/register', (req, res) => {
 	res.send({
-		message: 'Hello world!'
+		message: `User ${req.body.email} successfully registered`
 	});
 });
 
