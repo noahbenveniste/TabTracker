@@ -2,14 +2,14 @@
   <div id="app">
     <v-app>
       <v-card class="flex-column elevation-24 pa-2" tile>
-        <v-toolbar-title>New User Registration</v-toolbar-title>
+        <v-toolbar-title>Log in</v-toolbar-title>
         <v-container fluid>
-          <form name="registration-form" autocomplete="off">
-            <input type="email" name="email" v-model="email"  placeholder="Email"/>
+          <form>
+            <input type="email" name="email" v-model="email" placeholder="Email"/>
             <br>
-            <input type="password" name="password" v-model="password" autocomplete="new-password" placeholder="Password"/>
+            <input type="password" name="password" v-model="password" placeholder="Password"/>
             <br>
-            <v-btn @click="register">Register</v-btn>
+            <v-btn @click="login">Log in</v-btn>
             <br>
             <div class="error" v-html="error"></div>
           </form>
@@ -31,10 +31,10 @@ export default {
     }
   },
   methods: {
-    async register () {
+    async login () {
       try {
 
-        const response = await AuthenticationService.register({
+        const response = await AuthenticationService.login({
           email : this.email,
           password : this.password
         });
